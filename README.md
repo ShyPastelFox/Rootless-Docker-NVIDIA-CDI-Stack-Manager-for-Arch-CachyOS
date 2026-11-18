@@ -206,9 +206,9 @@ The registry is saved to `~/.config/docker-registry.txt`.
 All testing was conducted on Cachy OS LInux, with entails it should be usable with other arch distros.
 
 | Area | Status |
-| Real NVIDIA hardware | Tested |
+| --- | --- |
+| Real NVIDIA hardware | **Tested** |
 | Other Linux distributions | **Not verified** |
-
 
 ---
 
