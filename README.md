@@ -19,15 +19,11 @@
 
 | Main menu | Launching a stack |
 |---|---|
-| ![Main menu](<img width="1058" height="767" alt="image" src="https://github.com/user-attachments/assets/0dd5962d-a199-4798-88ed-eff0e62719c9" />
-) | ![Launching a stack](<img width="1920" height="935" alt="image" src="https://github.com/user-attachments/assets/3f9d700a-c039-4d1d-94cc-f2889b543cb3" />
-) |
+| ![Main menu](https://github.com/user-attachments/assets/0dd5962d-a199-4798-88ed-eff0e62719c9) | ![Launching a stack](https://github.com/user-attachments/assets/3f9d700a-c039-4d1d-94cc-f2889b543cb3) |
 
 | Stopping a stack | CDI repair |
 |---|---|
-| ![Stopping a stack](<img width="1920" height="954" alt="image" src="https://github.com/user-attachments/assets/f8d26ade-439d-41d1-bdd0-9b773a76dfb8" />
-) | ![CDI repair](<img width="1919" height="1010" alt="image" src="https://github.com/user-attachments/assets/b55c835d-009e-4c90-b62a-dff61a0616ba" />
-) |
+| ![Stopping a stack](https://github.com/user-attachments/assets/f8d26ade-439d-41d1-bdd0-9b773a76dfb8) | ![CDI repair](https://github.com/user-attachments/assets/b55c835d-009e-4c90-b62a-dff61a0616ba) |
 
 ---
 
