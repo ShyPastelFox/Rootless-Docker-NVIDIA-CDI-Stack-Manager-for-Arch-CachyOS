@@ -39,20 +39,6 @@
 
 ---
 
-
-##  Contents
-
-- [Read before you use this](#read-before-you-use)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Files the script uses](#files)
-- [Testing status](#testing)
-- [Troubleshooting](#troubleshooting)
-- [Licence](#licence)
-
----
-
 ## ⚠️ Read before you use this
 
 These points describe how the script behaves, including the parts that change files or restart services.
