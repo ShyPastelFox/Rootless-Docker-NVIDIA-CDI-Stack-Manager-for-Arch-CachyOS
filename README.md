@@ -203,7 +203,7 @@ The registry is saved to `~/.config/docker-registry.txt`.
 
 ## 🧪 Testing status
 
-All testing was conducted on Cachy OS LInux, with entails it should be usable with other arch distros.
+All testing was conducted on Cachy OS with an RTX 4060, which entails it should be usable with other arch distros.
 
 | Area | Status |
 | --- | --- |
