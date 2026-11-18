@@ -14,6 +14,21 @@
 
 ---
 
+## 📑 Contents
+
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Read before you use this](#read-before-you-use)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Files the script uses](#files)
+- [Testing status](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Licence](#licence)
+
+---
+
 ## 🖼️ Screenshots
 
 
