@@ -203,17 +203,12 @@ The registry is saved to `~/.config/docker-registry.txt`.
 
 ## 🧪 Testing status
 
+All testing was conducted on Cachy OS LInux, with entails it should be usable with other arch distros.
+
 | Area | Status |
-|---|---|
-| Stale-spec detection and deletion | Tested with fake commands |
-| Launch repair and container recreation | Tested with fake commands |
-| Terminal progress display | Tested with fake commands and a pseudo-terminal |
-| Missing-library refusal | Tested with fake commands |
-| Real NVIDIA hardware | **Not verified** on this setup |
-| Other driver versions | **Not verified** |
+| Real NVIDIA hardware | Tested |
 | Other Linux distributions | **Not verified** |
 
-Treat this as tested on the author's setup only. Check it on a second machine before relying on it there.
 
 ---
 
