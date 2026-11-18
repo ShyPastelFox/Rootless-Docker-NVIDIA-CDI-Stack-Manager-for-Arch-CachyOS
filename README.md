@@ -16,18 +16,18 @@
 
 ## 🖼️ Screenshots
 
-<!-- Replace the placeholders below with your own images.
-     Save each image in readme-assets/images/ and keep the path in the link. -->
 
 | Main menu | Launching a stack |
 |---|---|
-| ![Main menu](readme-assets/images/main-menu.png) | ![Launching a stack](readme-assets/images/launching.png) |
+| ![Main menu](<img width="1058" height="767" alt="image" src="https://github.com/user-attachments/assets/0dd5962d-a199-4798-88ed-eff0e62719c9" />
+) | ![Launching a stack](<img width="1920" height="935" alt="image" src="https://github.com/user-attachments/assets/3f9d700a-c039-4d1d-94cc-f2889b543cb3" />
+) |
 
 | Stopping a stack | CDI repair |
 |---|---|
-| ![Stopping a stack](readme-assets/images/stopping.png) | ![CDI repair](readme-assets/images/cdi-repair.png) |
-
-> **Adding images:** put the PNG or JPG file in `readme-assets/images/`, then update the path in the table. Any name works as long as the link matches.
+| ![Stopping a stack](<img width="1920" height="954" alt="image" src="https://github.com/user-attachments/assets/f8d26ade-439d-41d1-bdd0-9b773a76dfb8" />
+) | ![CDI repair](<img width="1919" height="1010" alt="image" src="https://github.com/user-attachments/assets/b55c835d-009e-4c90-b62a-dff61a0616ba" />
+) |
 
 ---
 
@@ -57,13 +57,15 @@ Before every launch, the script looks for NVIDIA CDI spec files in:
 | `/var/run/cdi` | Runtime directory, removed with `sudo` |
 | `~/.config/cdi` | Your user directory, removed without `sudo` |
 
-**Any `nvidia.*` file in these directories is deleted automatically**, except `/etc/cdi/nvidia.json`, which the script writes itself. This happens without a prompt. If another tool or a hand-written spec uses these names, it will be removed.
+**Any nvidia.* file in these directories is deleted automatically, except /etc/cdi/nvidia.json. This includes spec files that are current, not just outdated ones, and it happens without a prompt.** Any container runtime that uses CDI, such as Docker or Podman, loses GPU access until a spec is regenerated. If you keep hand-written NVIDIA specs in these directories, they will be removed. 
+
+Currently Working on a version that allows manual deletion to outdated configs.
 
 ### It restarts rootless Docker
 
 When a repair is needed, or when option 10 runs, the script restarts `docker` with `systemctl --user restart docker`. **Running containers are stopped.** The script asks first when containers are running during option 10, but an automatic repair before a launch goes ahead without asking.
 
-### It needs `sudo`
+### When it needs `sudo`
 
 Installing the regenerated spec, and deleting root-owned spec files, both use `sudo`. You will be asked for your password once per repair.
 
@@ -117,21 +119,33 @@ nvidia-smi
 nvidia-ctk --version
 ```
 
-### 3. Install the manager
+## 3. Install the manager
 
 Download `docker-manager.sh`, then install it into your user `bin` folder:
 
 ```bash
-install -m 0755 docker-manager.sh ~/.local/bin/docker-manager
+install -m 0700 docker-manager.sh ~/.local/bin/docker-manager
 ```
 
-Make sure `~/.local/bin` is on your `PATH`. Open a new terminal, or run `source ~/.bashrc`.
+### File permissions
+
+The `-m` value sets who can read, write, and run the script.
+
+| Option | Owner | Group | Others | Use when |
+|---|:---:|:---:|:---:|---|
+| `0700` **(recommended)** | `rwx` | `---` | `---` | Only you use the machine |
+| `0755` | `rwx` | `r-x` | `r-x` | Other users should be able to run the script |
+
+With `0700`, no other account can see or run the script. With `0755`, other users can read and run it, but they still can't change it. Your registry, log, and any repair actions still run under your own account.
 
 ### 4. Run it
 
 ```bash
 docker-manager
 ```
+
+or if you are on KDE it will register as an application on your launcher.
+
 
 The script must run from an interactive terminal. It will refuse to start when piped or run from a script.
 
