@@ -14,21 +14,6 @@
 
 ---
 
-## 📑 Contents
-
-- [Screenshots](#screenshots)
-- [Features](#features)
-- [Read before you use this](#read-before-you-use)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Files the script uses](#files)
-- [Testing status](#testing)
-- [Troubleshooting](#troubleshooting)
-- [Licence](#licence)
-
----
-
 ## 🖼️ Screenshots
 
 
@@ -51,6 +36,20 @@
 - **Automatic NVIDIA CDI repair** before each launch, and a retry if a launch fails with a GPU mount error
 - Keeps Docker Compose's live progress display while still reading errors
 - Writes a log of every action
+
+---
+
+
+##  Contents
+
+- [Read before you use this](#read-before-you-use)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Files the script uses](#files)
+- [Testing status](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Licence](#licence)
 
 ---
 
