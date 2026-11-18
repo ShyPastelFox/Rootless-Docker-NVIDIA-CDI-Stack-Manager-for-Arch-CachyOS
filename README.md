@@ -43,9 +43,9 @@
 
 These points describe how the script behaves, including the parts that change files or restart services.
 
-### It deletes files without asking
+### It deletes NVIDIA spec files without asking
 
-Before every launch, the script looks for NVIDIA CDI spec files in:
+Before each launch, the script checks the NVIDIA CDI spec files in:
 
 | Directory | Notes |
 |---|---|
@@ -53,9 +53,19 @@ Before every launch, the script looks for NVIDIA CDI spec files in:
 | `/var/run/cdi` | Runtime directory, removed with `sudo` |
 | `~/.config/cdi` | Your user directory, removed without `sudo` |
 
-**Any nvidia.* file in these directories is deleted automatically, except /etc/cdi/nvidia.json. This includes spec files that are current, not just outdated ones, and it happens without a prompt.** Any container runtime that uses CDI, such as Docker or Podman, loses GPU access until a spec is regenerated. If you keep hand-written NVIDIA specs in these directories, they will be removed. 
+If it finds a problem, it repairs the setup automatically, with no prompt for the deletions:
 
-Currently Working on a version that allows manual deletion to outdated configs.
+- Any `nvidia.*` file in these directories other than `/etc/cdi/nvidia.json` is deleted. This includes current spec files, not just outdated ones.
+- `/etc/cdi/nvidia.json` is regenerated if it points at a different driver version or at missing files.
+- Rootless Docker is restarted, which **stops running containers**.
+
+If a launch fails with an NVIDIA spec error, the script asks whether to regenerate the spec and retry now. If you decline, the launch stays failed and you can run option 10 later.
+
+If a repair can't complete (for example, driver libraries are missing), the launch is cancelled and nothing is installed or deleted.
+
+Hand-written NVIDIA spec files in these directories will be removed.
+
+> **Planned:** a version that lets you delete outdated configs manually, without the automatic cleanup.
 
 ### It restarts rootless Docker
 
@@ -67,7 +77,7 @@ Installing the regenerated spec, and deleting root-owned spec files, both use `s
 
 ### It only supports NVIDIA
 
-The GPU checks depend on `nvidia-smi` and `nvidia-ctk`. Other GPU vendors are not supported.
+The GPU checks depend on `nvidia-smi` and `nvidia-ctk`. Other GPU vendors are not supported due to a lack of AMD hardware for testing.
 
 ---
 
